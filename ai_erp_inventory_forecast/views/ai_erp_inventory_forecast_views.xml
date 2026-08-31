@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_ai_erp_inventory_forecast" model="ir.actions.act_window">
+        <field name="name">AI Inventory Forecasting &amp; Auto-Replenishment Engine</field>
+        <field name="res_model">ai.erp.inventory.forecast</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_ai_erp_inventory_forecast_tree" model="ir.ui.view">
+        <field name="name">ai.erp.inventory.forecast.tree</field>
+        <field name="model">ai.erp.inventory.forecast</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ai_erp_inventory_forecast_form" model="ir.ui.view">
+        <field name="name">ai.erp.inventory.forecast.form</field>
+        <field name="model">ai.erp.inventory.forecast</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                    </group>
+                    <group>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ai_erp_inventory_forecast_menu_root" model="ir.ui.menu">
+        <field name="name">AI Inventory Forecasting &amp; Auto-Replenishment Engine</field>
+        <field name="sequence">70</field>
+    </record>
+
+    <record id="ai_erp_inventory_forecast_menu_main" model="ir.ui.menu">
+        <field name="name">Dashboard</field>
+        <field name="parent_id" ref="ai_erp_inventory_forecast_menu_root"/>
+        <field name="action" ref="action_ai_erp_inventory_forecast"/>
+        <field name="sequence">10</field>
+    </record>
+</odoo>
